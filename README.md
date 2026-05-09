@@ -2,13 +2,15 @@
 
 > Identifying where and why users abandon the purchase journey using 42M behavioural events from a real e-commerce platform.
 
+![Dashboard Preview](dashboard.jpeg)
+
 ---
 
 ## Project Overview
 
 This project analyses the October 2019 e-commerce events dataset from [REES46](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store) to understand funnel drop-off across three stages: **view → cart → purchase**.
 
-Only **1 in 9 users** who view a product ever buy it. This project finds out why — and where the biggest opportunities to fix it are.
+Only **1 in 9 users** who view a product ever buy it. This project finds out where the biggest drop-offs happen — and what to do about them.
 
 ---
 
@@ -28,56 +30,50 @@ Only **1 in 9 users** who view a product ever buy it. This project finds out why
 
 ## Tools Used
 
-| Tool     | Purpose                              |
-|----------|--------------------------------------|
-| SQLite   | Database storage and querying        |
-| DBeaver  | SQL editor and database management   |
-| Python   | Data analysis and chart generation   |
-| pandas   | Data manipulation                    |
-| Plotly   | Funnel chart and line chart          |
-| seaborn  | Heatmap visualisation                |
-| Power BI | Interactive dashboard                |
-| reportlab| PDF report generation                |
+| Tool       | Purpose                              |
+|------------|--------------------------------------|
+| SQLite     | Database storage and querying        |
+| DBeaver    | SQL editor and database management   |
+| Python     | Data analysis and chart generation   |
+| pandas     | Data manipulation                    |
+| Plotly     | Funnel chart and line chart          |
+| seaborn    | Heatmap visualisation                |
+| Power BI   | Interactive dashboard                |
+| reportlab  | PDF report generation                |
 
 ---
 
-## Repository Structure
+## Files
 
-```
-cartleak/
-├── queries/
-│   └── queries.sql          # All 3 SQL queries with comments
-├── analysis/
-│   └── cartleak_analysis_v2.ipynb  # Python analysis notebook
-├── dashboard/
-│   └── CartLeak_Dashboard.pbix     # Power BI dashboard
-├── reports/
-│   └── CartLeak_Report.pdf         # Final PDF report
-└── data/
-    └── raw/
-        ├── cartleak_funnel.csv
-        ├── cartleak_category.csv
-        └── cartleak_hourly.csv
-```
+| File | Description |
+|------|-------------|
+| `queries.sql` | All 3 SQL queries with comments explaining the logic |
+| `cartleak_analysis_v2.ipynb` | Full Python analysis — charts, insights, PDF generation |
+| `CartLeak_Report.pdf` | Final one-page PDF report |
+| `dashboard.jpeg` | Power BI dashboard screenshot |
+| `cartleak_funnel.csv` | Funnel metrics by event type |
+| `cartleak_category.csv` | Conversion rates by product category |
+| `cartleak_hourly.csv` | User activity broken down by hour |
 
 ---
 
-## How to Run
+## How to Reproduce
 
 1. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)
 2. Import into SQLite using DBeaver
-3. Run `queries/queries.sql` to reproduce the analysis
-4. Open `analysis/cartleak_analysis_v2.ipynb` in Jupyter to generate charts
-5. Open `dashboard/CartLeak_Dashboard.pbix` in Power BI Desktop
+3. Run `queries.sql` to reproduce the core analysis
+4. Open `cartleak_analysis_v2.ipynb` in Jupyter to generate charts
 
 ---
 
 ## Recommendations
 
-1. **Simplify checkout** — reduce to 3 steps max and enable guest checkout to cut the 88.5% drop-off
-2. **Fix shoes tracking** — zero cart additions on 75K views signals a broken event or untracked flow
-3. **Double down on smartphones** — highest traffic + highest conversion = best ROI for ad spend
-4. **Target evening users** — retarget abandoned carts between 18:00–21:00 when intent is highest
+| # | Recommendation | Impact |
+|---|---------------|--------|
+| 1 | Simplify checkout to 3 steps max + enable guest checkout | High |
+| 2 | Fix apparel.shoes tracking — zero cart adds on 75K views signals a broken event | High |
+| 3 | Double down on smartphones — highest traffic + highest conversion = best ROI | High |
+| 4 | Retarget abandoned carts between 18:00–21:00 when purchase intent is highest | Medium |
 
 ---
 
